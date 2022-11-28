@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "uuid": "^9.0.0",
+    "yargs": "^17.6.2",
+    "yarn": "^1.22.19"
+  },
+  "name": "goit-node-hw-01",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified \" && exit 1",
+    "start": "node index",
+    "start:dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiTatyana/goit-node-hw-01.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SiTatyana/goit-node-hw-01/issues"
+  },
+  "homepage": "https://github.com/SiTatyana/goit-node-hw-01#readme"
+}
