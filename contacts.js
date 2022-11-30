@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
-// const path = require('path');
-const path = require('node:path');
+const path = require('path');
+// const path = require('node:path');
 const { v4: uuidv4 } = require('uuid');
 
 
@@ -26,28 +26,27 @@ async function listContacts() {
   
   async function removeContact(contactId) {
     const contacts = await listContacts();
-    const idx = contacts.findIndex(item => item.id === contactId);
-
+    const idx = contacts.findIndex(item => item.id === String(contactId));
     const deleteContact = contacts[idx];
-    if (idx !== -1) {
-        contacts.splice(idx,1);
-        await fs.writeFile(filePath, JSON.stringify(contscts));
+    if(idx === -1){
+      return null
     }
-    return deleteContact ? deleteContact: null;
-  }
+    contacts.splice(idx,1);
+    await fs.writeFile(filePath, JSON.stringify(contacts));
+    return deleteContact;
+;  }
   
   async function addContact(name, email, phone) {
     const contacts = await listContacts();
     const newContact = {
-        name,
-        email,
-        phone,
+        name: name,
+        email: email,
+        phone: phone,
         id:uuidv4(),
     }
     contacts.push(newContact);
     await fs.writeFile(filePath, JSON.stringify(contacts));
     return newContact;
-
   }
 
   module.exports = {
@@ -57,4 +56,3 @@ async function listContacts() {
     removeContact,
   }
 
- 
